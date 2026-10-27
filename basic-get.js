@@ -8,10 +8,10 @@ function getRandomInt(max) {
 
 async function main() {
     const num = prompt("Introduce numero de personaje (max: 826): ");
-    if (0 >= num || num < 826){
-        console.log("[ERROR] (1 - 826)")
-    } else if (!isNaN(num)) {
-        console.log("[ERROR] (Not a number)")
+    if (isNaN(num)) {
+        console.log("[ERROR] (Not a number)");
+    } else if (num < 1 || num > 826) {
+        console.log("[ERROR] (Debe ser entre 1 y 826)");
     } else {
         const responseC = await fetch('https://rickandmortyapi.com/api/character/' + num);
         const character = await responseC.json();
